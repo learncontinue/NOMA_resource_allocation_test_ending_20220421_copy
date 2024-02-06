@@ -15,26 +15,26 @@ import argparse
 import torch
 import ch
 
-ch.set_ch()
+ch.set_ch()#自定义汉字字体
 """
 #####################  hyper parameters  ####################
 """
 
-MAX_EPISODES = 100
-MAX_EP_STEPS = 6000
+MAX_EPISODES = 100 #最大100个回合？
+MAX_EP_STEPS = 6000 #每个回合6000步长？
 LR_A = 0.01    # learning rate for actor
 LR_C = 0.01    # learning rate for critic
 LR_Q = 0.01    # DQN的学习率
 GAMMA = 0.9     # reward discount
-E_GREEDY = 0.9
-REPLACEMENT = dict(name='soft', tau=0.01)  # 可以选择不同的replacement策略，这里选择了soft replacement
-REPLACE_TARGET_ITER = 2  # DON网络的更新频率
-MEMORY_SIZE = 1000
-BATCH_SIZE = 100
-OUTPUT_GRAPH = False
-CAPACITY = 1000
+E_GREEDY = 0.9 #贪婪算法的贪婪因子
+REPLACEMENT = dict(name='soft', tau=0.01)  # 可以选择不同的replacement策略，这里选择了soft replacement，软更新和硬更新区别？，一般是软更新
+REPLACE_TARGET_ITER = 2  # DON网络的更新频率，如何体现
+MEMORY_SIZE = 1000 #记忆库容量1000
+BATCH_SIZE = 100 #每批次大小为100
+OUTPUT_GRAPH = False #输出图是False？
+CAPACITY = 1000 #容量为1000？
 
-env = Environ()
+env = Environ() #环境引入
 n_veh = env.n_Veh  # DDPG中Actor网络的输出动作维度，大小为K x M
 n_RB = env.n_RB
 state_dim = env.state_dim
